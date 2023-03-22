@@ -27,19 +27,16 @@ const upload = multer({ storage: storage });
 
 router.get("/", async (req, res) => {
     const id = req.query.id;
-
     if (id) {
         const document = await fetchDocumentById("blog", id);
-        res.status(200).json({
-            msg: "get request with id: " + id,
-            document: document,
-        });
+        res.status(200).json(
+            document
+        );
     } else {
         const documents = await fetchAllDocuments("blog");
-        res.status(200).json({
-            msg: "get request",
-            documents: documents,
-        });
+        res.status(200).json(
+            documents
+        );
     }
 });
 

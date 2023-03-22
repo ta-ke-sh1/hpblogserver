@@ -6,7 +6,9 @@ const fetchAllDocuments = async (collectionRef) => {
     const documents = [];
     const querySnapshot = await db.collection(collectionRef).get();
     querySnapshot.forEach((doc) => {
-        documents.push(doc.data());
+        var obj = doc.data();
+        obj.id = doc.id;
+        documents.push(obj);
     });
     console.log(documents.length);
     return documents;

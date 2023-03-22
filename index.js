@@ -1,5 +1,11 @@
 const express = require("express");
 const app = express();
+const { serviceKey } = require("./constants");
+var admin = require("firebase-admin");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceKey),
+});
 
 app.use(express.static(__dirname + "/public"));
 

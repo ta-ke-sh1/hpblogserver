@@ -15,7 +15,7 @@ app.use(
     })
 );
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/assets"));
 
 const blogController = require("./controllers/blog");
 app.use("/blog", blogController);
